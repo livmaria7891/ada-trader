@@ -1,4 +1,8 @@
 import Backbone from 'backbone';
+import $ from 'jquery';
+import _ from 'underscore';
+
+import QuoteView from 'app/views/quote_view.js'
 
 const ApplicationView = Backbone.View.extend({
   initialize: function() {
