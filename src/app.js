@@ -54,37 +54,15 @@ const simulate = function(quote) {
   quote.trigger('change:price', change);
 };
 
-// $(document).ready(function() {
-//   // var appView = new ApplicationView({
-//   //   el: '#application'
-//   // });
-//
-//   var quoteTemplate = _.template($('#tmpl-quote-view').html());
-//
-//   var quoteListElement = $('.quotes');
-//   // var card = new QuoteView({quote: stockData[0]});
-//   var card = quoteTemplate({quote: stockData[0]});
-//   quoteListElement.append(card.render().$el);
-//
-//   //card.render();
-//   //appView.render();
-//
-//   setInterval(function() {
-//     // Call simulate() on each quote in the ApplicationView
-//   }, 1000);
-// });
-
 $(document).ready(function() {
-  var quoteTemplate = _.template($('#tmpl-quote-view').html());
-  var quoteListElement = $('.quotes');
-  var cardList = []
-  // stockData.forEach(function(quote) {
+  var appView = new ApplicationView({
+    el: '#application',
+    stockData: stockData
+  });
 
-      var card = new QuoteView({
-        quote: stockData[0],
-        template: quoteTemplate
-      });
-      cardList.push(card);
-      quoteListElement.append(card.render().$el);
-  // });
+  appView.render();
+
+  setInterval(function() {
+    // Call simulate() on each quote in the ApplicationView
+  }, 1000);
 });
